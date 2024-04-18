@@ -1,0 +1,26 @@
+server:
+  port: :5000
+cache:
+  host: localhost
+  port: 6379
+ratelimits:
+  - appid: default
+    threshold: 5
+    type: VARIABLE
+    apipath: metrics/hits
+    interval:
+      value: 60
+      timeunit: SECONDS
+  - appid: test-app
+    threshold: 100
+    type: VARIABLE
+    interval:
+      value: 60
+      timeunit: SECONDS
+  - ipaddress: 10.0.0.78
+    threshold: 100
+    type: VARIABLE
+    interval:
+      value: 60
+      timeunit: SECONDS
+
